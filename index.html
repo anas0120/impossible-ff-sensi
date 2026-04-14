@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>^Impossible^ - Free Fire Sensi</title>
+  <style>
+    body {
+      background: #18182a;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    h1 {
+      margin-top: 2rem;
+      font-size: 2.7rem;
+      color: #ffce34;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 15px #fc117a;
+    }
+    .desc {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: #ffc7e6;
+      text-align: center;
+      padding: 0 1em;
+    }
+    .channel-link {
+      background: linear-gradient(90deg,#fc117a 0%,#ffce34 100%);
+      color: #18182a;
+      padding: 0.8em 2em;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background .2s;
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+    .channel-link:hover {
+      background: linear-gradient(90deg,#ffce34 0%,#fc117a 100%);
+      color: #1a1a2e;
+    }
+    .search-container {
+      margin: 1.5em 0;
+      text-align: center;
+      width: 100%;
+      max-width: 350px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8em;
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      margin-top: 0.3em;
+      box-shadow: 0 2px 10px #222;
+    }
+    table {
+      border-collapse: collapse;
+      width: 95%;
+      max-width: 550px;
+      margin: 0 auto 2em auto;
+      font-size: 1rem;
+      background: #292947cc;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 18px #000a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 0.7em 1em;
+      border-bottom: 1px solid #393969;
+      text-align: center;
+    }
+    th {
+      background: #fc117a;
+      color: #fff;
+      font-size: 1.08em;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.1rem; }
+      table, th, td { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>^Impossible^</h1>
+  <div class="desc">
+    All Free Fire sensitivity settings for every model and device. <br>
+    Easy to use &mdash; Find your device’s best sensi instantly!
+  </div>
+
+  <a class="channel-link" href="https://whatsapp.com/channel/0029VbB0EHkCMY0Cs3Rp7u3n" target="_blank">
+    Join Our WhatsApp Channel
+  </a>
+
+  <div class="search-container">
+    <label for="search">Search your device/model:</label><br>
+    <input type="text" id="search" placeholder="e.g. Poco X3, Samsung M30, iPhone...">
+  </div>
+
+  <table id="sensiTable">
+    <thead>
+      <tr>
+        <th>Device/Model</th>
+        <th>General</th>
+        <th>Red Dot</th>
+        <th>2X Scope</th>
+        <th>4X Scope</th>
+        <th>AWM Scope</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Poco X3</td>
+        <td>78</td>
+        <td>94</td>
+        <td>93</td>
+        <td>80</td>
+        <td>38</td>
+      </tr>
+      <tr>
+        <td>Samsung M30</td>
+        <td>85</td>
+        <td>95</td>
+        <td>98</td>
+        <td>88</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>iPhone 12</td>
+        <td>96</td>
+        <td>99</td>
+        <td>96</td>
+        <td>87</td>
+        <td>44</td>
+      </tr>
+      <tr>
+        <td>Realme 5 Pro</td>
+        <td>82</td>
+        <td>90</td>
+        <td>89</td>
+        <td>66</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td>Redmi Note 10</td>
+        <td>89</td>
+        <td>96</td>
+        <td>97</td>
+        <td>82</td>
+        <td>43</td>
+      </tr>
+      <!-- Add more devices here! -->
+    </tbody>
+  </table>
+
+  <script>
+    // Simple table filter
+    document.getElementById('search').addEventListener('keyup', function() {
+      var value = this.value.toLowerCase();
+      var rows = document.querySelectorAll('#sensiTable tbody tr');
+      rows.forEach(function(row) {
+        var device = row.children[0].textContent.toLowerCase();
+        if (device.indexOf(value) > -1) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
