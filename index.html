@@ -5,174 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>^Impossible^ - Free Fire Sensi</title>
   <style>
-    body {
-      background: #18182a;
-      color: #fff;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0; padding: 0;
-      min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    h1 {
-      margin-top: 2rem;
-      font-size: 2.7rem;
-      color: #ffce34;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 15px #fc117a;
-    }
-    .desc {
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      color: #ffc7e6;
-      text-align: center;
-      padding: 0 1em;
-    }
-    .channel-link {
-      background: linear-gradient(90deg,#fc117a 0%,#ffce34 100%);
-      color: #18182a;
-      padding: 0.8em 2em;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background .2s;
-      margin-bottom: 2rem;
-      display: inline-block;
-    }
-    .channel-link:hover {
-      background: linear-gradient(90deg,#ffce34 0%,#fc117a 100%);
-      color: #1a1a2e;
-    }
-    .search-container {
-      margin: 1.5em 0;
-      text-align: center;
-      width: 100%;
-      max-width: 350px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 0.8em;
-      border: none;
-      border-radius: 15px;
-      font-size: 1rem;
-      margin-top: 0.3em;
-      box-shadow: 0 2px 10px #222;
-    }
-    table {
-      border-collapse: collapse;
-      width: 95%;
-      max-width: 550px;
-      margin: 0 auto 2em auto;
-      font-size: 1rem;
-      background: #292947cc;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 4px 18px #000a;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    th, td {
-      padding: 0.7em 1em;
-      border-bottom: 1px solid #393969;
-      text-align: center;
-    }
-    th {
-      background: #fc117a;
-      color: #fff;
-      font-size: 1.08em;
-    }
-    tr:last-child td {
-      border-bottom: none;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2.1rem; }
-      table, th, td { font-size: 0.9rem; }
-    }
+    body { background: #18182a; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    h1 { margin-top: 2rem; font-size: 2.2rem; color: #ffce34; letter-spacing: 1.5px; text-shadow: 0 1px 10px #fc117a;}
+    .desc { margin-bottom: 2rem; font-size: 1.1rem; color: #ffc7e6; text-align: center;}
+    .channel-link { background: linear-gradient(90deg,#fc117a 0%,#ffce34 100%); color: #18182a; padding: 0.9em 2em; border-radius: 30px; text-decoration: none; font-weight: bold;}
+    .channel-link:hover { background: linear-gradient(90deg,#ffce34 0%,#fc117a 100%);}
+    .search-container { margin: 2em 0 1em 0; text-align: center; width: 96%; max-width: 350px;}
+    input[type="text"] { width: 100%; padding: 0.8em; border: none; border-radius: 15px; font-size: 1rem; margin-top: 0.3em; box-shadow: 0 2px 10px #222; }
+    .ai-result { margin: 26px auto 1em auto; background: #292947cc; border-radius: 8px; max-width: 500px; width: 95%; box-shadow: 0 3px 13px #000a; padding: 18px 12px; }
+    .ai-result b { color: #ffce34;}
+    .not-found { color: #ff7181; margin-top: 1em;}
+    @media (max-width: 600px) { h1 { font-size: 1.5rem; } .ai-result, .search-container { font-size: 0.98rem; } }
   </style>
 </head>
 <body>
   <h1>^Impossible^</h1>
   <div class="desc">
-    All Free Fire sensitivity settings for every model and device. <br>
-    Easy to use &mdash; Find your device’s best sensi instantly!
+    All Free Fire sensitivity (“sensi”) settings<br>All devices &mdash; powered by AI search!
   </div>
-
   <a class="channel-link" href="https://whatsapp.com/channel/0029VbB0EHkCMY0Cs3Rp7u3n" target="_blank">
     Join Our WhatsApp Channel
   </a>
-
   <div class="search-container">
-    <label for="search">Search your device/model:</label><br>
-    <input type="text" id="search" placeholder="e.g. Poco X3, Samsung M30, iPhone...">
+    <input type="text" id="search" placeholder="Search your device/model (e.g., Samsung S21, Poco X3, ...)" autocomplete="off">
+    <div id="result" class="ai-result" style="display:none;"></div>
   </div>
-
-  <table id="sensiTable">
-    <thead>
-      <tr>
-        <th>Device/Model</th>
-        <th>General</th>
-        <th>Red Dot</th>
-        <th>2X Scope</th>
-        <th>4X Scope</th>
-        <th>AWM Scope</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Poco X3</td>
-        <td>78</td>
-        <td>94</td>
-        <td>93</td>
-        <td>80</td>
-        <td>38</td>
-      </tr>
-      <tr>
-        <td>Samsung M30</td>
-        <td>85</td>
-        <td>95</td>
-        <td>98</td>
-        <td>88</td>
-        <td>50</td>
-      </tr>
-      <tr>
-        <td>iPhone 12</td>
-        <td>96</td>
-        <td>99</td>
-        <td>96</td>
-        <td>87</td>
-        <td>44</td>
-      </tr>
-      <tr>
-        <td>Realme 5 Pro</td>
-        <td>82</td>
-        <td>90</td>
-        <td>89</td>
-        <td>66</td>
-        <td>40</td>
-      </tr>
-      <tr>
-        <td>Redmi Note 10</td>
-        <td>89</td>
-        <td>96</td>
-        <td>97</td>
-        <td>82</td>
-        <td>43</td>
-      </tr>
-      <!-- Add more devices here! -->
-    </tbody>
-  </table>
-
   <script>
-    // Simple table filter
-    document.getElementById('search').addEventListener('keyup', function() {
-      var value = this.value.toLowerCase();
-      var rows = document.querySelectorAll('#sensiTable tbody tr');
-      rows.forEach(function(row) {
-        var device = row.children[0].textContent.toLowerCase();
-        if (device.indexOf(value) > -1) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
-      });
+    // Sample list - expand this! (add as many as you want)
+    const sensiData = [
+      {model: "Poco X3", gen:78, red:94, x2:93, x4:80, awm:38},
+      {model: "Samsung M30", gen:85, red:95, x2:98, x4:88, awm:50},
+      {model: "iPhone 12", gen:96, red:99, x2:96, x4:87, awm:44},
+      {model: "Realme 5 Pro", gen:82, red:90, x2:89, x4:66, awm:40},
+      {model: "Redmi Note 10", gen:89, red:96, x2:97, x4:82, awm:43},
+      {model: "Samsung S21", gen:93, red:97, x2:92, x4:85, awm:46},
+      {model: "Vivo Y20", gen:80, red:91, x2:90, x4:77, awm:42},
+      {model: "Infinix Hot 10", gen:82, red:88, x2:86, x4:73, awm:40},
+      {model: "OPPO A54", gen:78, red:85, x2:89, x4:68, awm:38},
+      // add hundreds/thousands more!
+    ];
+
+    function similarity(str1, str2) {
+      // Lowercase, basic match scoring
+      str1=str1.toLowerCase(); str2=str2.toLowerCase();
+      if (str1===str2) return 100;
+      let words1 = str1.split(/\s+/), words2 = str2.split(/\s+/), score = 0;
+      for(const w of words1) if(words2.includes(w)) score+=20;
+      return score;
+    }
+
+    document.getElementById("search").addEventListener("input", function() {
+      const query = this.value.trim().toLowerCase();
+      const resultDiv = document.getElementById("result");
+      if (!query) { resultDiv.style.display="none"; return; }
+
+      // 1. Try exact and close matches
+      let best = null, bestScore=0;
+      for(const phone of sensiData) {
+        const s = similarity(phone.model, query);
+        if(s>bestScore) {bestScore=s; best=phone;}
+      }
+
+      if(bestScore>50) {
+        // Good match found!
+        resultDiv.innerHTML =
+          `<b>${best.model}</b> Sensi:<br>
+          General: <b>${best.gen}</b>, Red Dot: <b>${best.red}</b>, 2X: <b>${best.x2}</b>, 4X: <b>${best.x4}</b>, AWM: <b>${best.awm}</b>`;
+        resultDiv.style.display="block";
+      } else {
+        // No good match found
+        // Show closest (if above 0), else offer "Suggest!"
+        let close = bestScore>0? `Closest: <b>${best.model}</b>` : "No match found.";
+        resultDiv.innerHTML =
+          `<span class="not-found">Device not found!</span><br>${close}<br>
+           <span style='font-size:0.97em;color:#d8d8ff;'>Want your device added? <a style='color:#ffce34;' href="https://whatsapp.com/channel/0029VbB0EHkCMY0Cs3Rp7u3n" target="_blank">Send us on WhatsApp</a></span>`;
+        resultDiv.style.display="block";
+      }
     });
   </script>
 </body>
